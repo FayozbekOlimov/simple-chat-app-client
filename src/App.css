@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+  --primary-color: #6A96D8;
+  --bg-color: #BBCDDC;
+  --tag-color: #5cae93;
+  --bg-msg-user: #f3e9e9;
+  --bg-msg-group: #E6EDF6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+input, button, textarea {
+  border: none;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.chat-header {
+  padding: 24px;
+  background-color: var(--primary-color);
+}
+
+.chat-title {
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.chat-title span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.messages, .tags {
+  height: 400px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-bottom: 0.5px solid #dedede;
+  padding: 32px 24px;
+}
+
+.tags {
+  padding: 28px 20px;
+  overflow-x: auto;
+}
+
+.tag {
+  border: 2px solid var(--tag-color);
+  padding: 4px 8px 4px 12px;
+  border-radius: 24px;
+}
+
+.tag .delete-btn {
+  border: 2px solid var(--tag-color);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.msg {
+  padding: 8px;
+  background-color: var(--bg-msg-group);
+  max-width: 70%;
+  border-radius: 0 4px 4px 4px !important;
+  position: relative;
+}
+
+.msg::before {
+  content: "";
+  border: 5px solid transparent;
+  border-top-color: var(--bg-msg-group);
+  border-right-color: var(--bg-msg-group);
+  position: absolute;
+  left: -10px;
+  top: 0;
+}
+
+.msg-date {
+  color: #aaa;
+  font-size: 12px;
+  user-select: none;
+}
+
+.msg.reverse {
+  align-self: flex-end;
+  background-color: var(--bg-msg-user);
+  border-radius: 4px 0 4px 4px !important;
+  position: relative;
+}
+
+.msg.reverse::before {
+  border: 5px solid transparent;
+  border-top-color: var(--bg-msg-user);
+  border-left-color: var(--bg-msg-user);
+  left: 100%;
+}
+
+.msg.reverse::after {
+  position: absolute;
+  left: 100%;
+  transform: translateX(-100%);
+}
+
+.msg div {
+  color: blue;
+}
+
+.form input {
+  flex: 1;
+  background-color: transparent;
+}
+
+.form button {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+.form button:disabled {
+  opacity: 0.5;
+}
+
+.form .bi {
+  font-size: 22px;
+}
+
+
+form.tag-form {
+  position: relative;
+}
+
+form.tag-form .autocomplete-box {
+  position: absolute;
+  height: 160px;
+  top: -160px;
+  left: 0;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+form.tag-form .autocomplete {
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+}
+
+form.tag-form .autocomplete:empty {
+  border: none;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+form.tag-form .autocomplete li {
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+form.tag-form .autocomplete li:hover {
+  background-color: #ddd;
+}
